@@ -1,8 +1,11 @@
 var mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
+  // NEW VERSION OF MONGOOSE ALREADY ASSUMES ALL THE FOLLOWIN 
+  // useNewUrlParser , useUnifiedTopology , useFindAndModify , and useCreateIndex are no longer supported options
+  // . Mongoose 6 always behaves as if useNewUrlParser , useUnifiedTopology , and useCreateIndex are true , and useFindAndModify is false .
+  // useNewUrlParser: true,
+  // useCreateIndex: true,
+  // useUnifiedTopology: true
   });
 //  ////////////////////// TO CHECK WE ARE CONNECTED AND WHERE WE ARE CONNECTED TO /////////////////////////
 var db = mongoose.connection;
