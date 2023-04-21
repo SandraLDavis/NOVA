@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
 mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+    // useCreateIndex: true
   });
 //  ////////////////////// TO CHECK WE ARE CONNECTED AND WHERE WE ARE CONNECTED TO /////////////////////////
 var db = mongoose.connection;
