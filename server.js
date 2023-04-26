@@ -34,7 +34,7 @@ app.use(express.static('upload'))
 // using method over ride for delete and put requests /////////
 app.use(methodOverRide('_method'));
 app.use(session({
-  secret: 'CarsJr',
+  secret: 'NOVA',
   resave: false,
   saveUninitialized: true
 }));

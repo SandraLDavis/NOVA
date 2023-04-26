@@ -1,9 +1,13 @@
 var passport = require('passport');
-// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy; ----- > THIS IS THE OLD VERSION
 // var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 var GoogleStrategy = require( 'passport-google-oauth20' ).Strategy;
 var User = require('../models/user');
 var mongoose = require('mongoose');
+
+
+
+ 
 
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
@@ -32,12 +36,14 @@ passport.use(new GoogleStrategy({
         };
       });
     }));
+
     // ////////  NOT SURE WHAT IT DOES BUT I THINK THEY SET THE USER KEY IN REQ OBJECT ////////////// 
-    passport.serializeUser(function(user, done) {
-      done(null, user.id);
+  passport.serializeUser(function(user, done) {
+    done(null, user.id);
+  });
+  passport.deserializeUser(function(id, done) {
+    User.findById(id, function(err, user) {
+      done(err, user);
     });
-    passport.deserializeUser(function(id, done) {
-      User.findById(id, function(err, user) {
-        done(err, user);
-      });
-    });
+  });
+   
