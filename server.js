@@ -1,17 +1,3 @@
-// const http = require("http");
-// const host = 'localhost';
-// const port = 8000;
-
-
-// const requestListener = function (req, res) {
-//     res.writeHead(200);
-//     res.end("My first server!");
-// };
-
-// const server = http.createServer(requestListener);
-// server.listen(port, host, () => {
-//     console.log(`Server is running on http://${host}:${port}`);
-// });
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -43,12 +29,12 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, '/public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static('upload'))
 // using method over ride for delete and put requests /////////
 app.use(methodOverRide('_method'));
 app.use(session({
-  secret: 'NOVA',
+  secret: 'CarsJr',
   resave: false,
   saveUninitialized: true
 }));

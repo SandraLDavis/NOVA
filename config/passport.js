@@ -1,12 +1,14 @@
 var passport = require('passport');
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 var User = require('../models/user');
+var mongoose = require('mongoose');
 
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK
 },function(accessToken, refreshToken, profile, cb){
+  console.log("we are here ");
     User.findOne({googleId: profile.id}, function(err, user) {
         if (err) return cb(err);
         if (user) {
@@ -20,6 +22,7 @@ passport.use(new GoogleStrategy({
             avatar: profile.photos[0].value,
             googleId: profile.id
           });
+          console.log(newUser);
           newUser.save(function(err) {
             if (err) return cb(err);
             return cb(null, newUser);
