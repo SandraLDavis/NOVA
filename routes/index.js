@@ -15,21 +15,21 @@ router.get('/auth/google',passport.authenticate(
   }
 ));
 
-  // router.get('/oauth2callback', passport.authenticate(
-  //   'google',
-  //   {
-  //     successRedirect: '/home',
-  //     failureRedirect: '/home'
-  //   }
-  // ));
+  router.get('/oauth2callback', passport.authenticate(
+    'google',
+    {
+      successRedirect: '/home',
+      failureRedirect: '/home'
+    }
+  ));
 
 
-  router.get('/oauth2callback', 
-  passport.authenticate('google', { failureRedirect: 'https://www.google.com/' }),
-  function(req, res) {
-    // Successful authentication, redirect home.
-    res.redirect('https://www.google.com/');
-  });
+  // router.get('/oauth2callback', 
+  // passport.authenticate('google', { failureRedirect: 'https://www.google.com/' }),
+  // function(req, res) {
+  //   // Successful authentication, redirect home.
+  //   res.redirect('https://www.google.com/');
+  // });
 
 
 
