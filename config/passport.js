@@ -14,7 +14,7 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK,
 },function(accessToken, refreshToken, profile, cb){
-  console.log("we are here passssssssssssport ");
+  console.log("we are here passssssssssssport ---------->>>>>>> " , profile);
     User.findOne({googleId: profile.id}, function(err, user) {
         if (err) return cb(err);
         if (user) {
