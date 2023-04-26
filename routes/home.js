@@ -8,6 +8,7 @@ var Post = require('../models/post');
 
 
 router.get('/home',isLoggedIn,async function(req,res){
+    console.log("here at router get home 1 ");
     let posts = await Post.find({ $query: {}, $orderby: { createdAt : -1 } })
     // Post.find({}).sort({'created_at': -1})(function(err,posts){
       res.render('home',{
@@ -17,7 +18,7 @@ router.get('/home',isLoggedIn,async function(req,res){
     })
     // })
     });
-    
+
 function isLoggedIn(req, res,next){
     console.log("we are here 1");
     if(req.isAuthenticated()){

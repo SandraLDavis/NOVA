@@ -37,6 +37,8 @@
     "passport": "^0.6.0",
     "passport-google-oauth": "^2.0.0",
     "passport-google-oauth2": "^0.2.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-google-oidc": "^0.1.0",
     "request": "^2.88.2",
     "require": "^0.4.4",
     "requirejs": "^2.3.6",
