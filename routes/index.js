@@ -14,6 +14,7 @@ router.get('/auth/google',passport.authenticate(
     scope: ['profile','email']
   }
   ));
+  
   router.get('/oauth2callback', passport.authenticate(
     'google',
     {

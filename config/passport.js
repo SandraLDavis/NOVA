@@ -1,14 +1,16 @@
 var passport = require('passport');
-var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+// var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+var GoogleStrategy = require( 'passport-google-oauth2' ).Strategy;
 var User = require('../models/user');
 var mongoose = require('mongoose');
 
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: process.env.GOOGLE_CALLBACK
-},function(accessToken, refreshToken, profile, cb){
-  console.log("we are here ");
+  callbackURL: process.env.GOOGLE_CALLBACK,
+  passReqToCallback   : true
+},function(request, accessToken, refreshToken, profile, cb){
+  console.log("we are here passssssssssssport ");
     User.findOne({googleId: profile.id}, function(err, user) {
         if (err) return cb(err);
         if (user) {
