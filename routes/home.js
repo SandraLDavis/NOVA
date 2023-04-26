@@ -11,11 +11,16 @@ router.get('/home',isLoggedIn,async function(req,res){
     console.log("here at router get home 1 ");
     let posts = await Post.find({ $query: {}, $orderby: { createdAt : -1 } })
     // Post.find({}).sort({'created_at': -1})(function(err,posts){
-      res.render('home',{
-        posts:posts.reverse(),
-        loggedInUser: req.user,
-        title: 'Home'
-    })
+      if (posts) {
+          res.render('home',{
+            posts:posts.reverse(),
+            loggedInUser: req.user,
+            title: 'Home'
+        })
+      }  
+      else {
+        res.redirect('https://www.google.com/')
+      }
     // })
     });
 
