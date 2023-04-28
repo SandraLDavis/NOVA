@@ -15,17 +15,15 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK,
 },async function(accessToken, refreshToken, profile, cb){
-  console.log("we are here passssssssssssport ---------->>>>>>> " , profile);
-
-
+  // console.log("we are here passssssssssssport ---------->>>>>>> " , profile);
    User.findOne({googleId: profile.id}).then((user) => {
-    console.log("findone bade error ");
+    // console.log("inja usera migardim peida konim --->  " , user);
         if (user) {
           // returning user
           return cb(null, user);
         } else {
           // we have a new user via OAuth!
-          console.log("findone toye else");
+          // console.log("findone toye else");
           var newUser = new User({
             displayName: profile.displayName,
             firstName: profile.name.givenName,
@@ -34,9 +32,10 @@ passport.use(new GoogleStrategy({
             avatar: profile.photos[0].value,
             googleId: profile.id
           });
-          console.log(newUser , "Adding the new user to the database --------<<<<<<<");
-          newUser.save(newUser);
-          return cb(null, user);
+          // console.log(newUser , "Adding the new user to the database --------<<<<<<<");
+          newUser.save(newUser).then((user) => {
+            return cb(null, user);
+          })
         }
    })
     /*****  throw new MongooseError('Model.findOne() no longer accepts a callback');  *******/
