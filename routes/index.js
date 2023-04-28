@@ -25,20 +25,11 @@ router.get('/auth/google',passport.authenticate(
 
 
   router.get('/oauth2callback', 
-  passport.authenticate('google', { failureRedirect: 'https://www.google.com/' }),
+  passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
     res.redirect(`/users/profile/${req.user.id}?AZ+GOOGLE+MIRIM+BE+PROFILE+BEHTARE`);
   });
-
-
-
-  // router.get( '/auth/google/callback',
-  //   passport.authenticate( 'google', {
-  //       successRedirect: '/auth/google/success',
-  //       failureRedirect: '/auth/google/failure'
-  // }));
-
 
   router.get('/logout', function(req, res , next) {
       // req.logout();
