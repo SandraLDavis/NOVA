@@ -25,7 +25,7 @@ router.get('/', (req, res) => {
         //     res.redirect('https://www.google.com/')
         //   }
         // })
-        res.redirect('https://www.google.com/');
+        res.send('dorostesh kardi :)');
     });
 
 // function isLoggedIn(req, res,next){
