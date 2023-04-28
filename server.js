@@ -1,5 +1,6 @@
 var createError = require('http-errors');
 var express = require('express');
+var router = express.Router();
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -45,7 +46,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // /////////////////// using routers //////////////////////////////////
 app.use('/', indexRouter);
-app.use('/home', homeRouter);
+app.use('/home',homeRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 app.use('/search', searchRouter);
