@@ -20,6 +20,9 @@ router.get('/new' ,function(req,res,next) {
         loggedInUser : req.user 
     })
 })
+router.post('/upload' , function(req,res,next) {
+    console.log(req);
+})
 
 
 module.exports = router;
