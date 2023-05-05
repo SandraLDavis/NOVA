@@ -15,5 +15,9 @@ var storage = cloudinaryStorage({
 var upload = multer({storage})
 var postsCtrl = require('../controllers/posts');
 
+router.get('/new' ,function(req,res,next) {
+    res.render('newPost')
+})
+
 
 module.exports = router;
