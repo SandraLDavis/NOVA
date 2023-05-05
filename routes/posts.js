@@ -4,20 +4,20 @@ var router = express.Router();
 var User = require('../models/user');
 var Post = require('../models/post');
 
-// var multer = require('multer');
-// var cloudinary = require('cloudinary').v2;
-// var {cloudinaryStorage} = require('multer-storage-cloudinary');
+var multer = require('multer');
+var cloudinary = require('cloudinary').v2;
+var {CloudinaryStorage} = require('multer-storage-cloudinary');
 
-// var storage = new cloudinaryStorage({
-//     cloudinary : cloudinary, 
-//     filename: function (req, file, cb) {
-//         cb(null, new Date().toISOString() + file.originalname );
-//       },
-//     allowedFormats: ["jpg", "jpeg", "png"],
-// });
+var storage = new CloudinaryStorage({
+    cloudinary : cloudinary, 
+    filename: function (req, file, cb) {
+        cb(null, new Date().toISOString() + file.originalname );
+      },
+    allowedFormats: ["jpg", "jpeg", "png"],
+});
 
-// var upload = multer({storage})
-// var postsCtrl = require('../controllers/posts');
+var upload = multer({storage})
+var postsCtrl = require('../controllers/posts');
 
 router.get('/new' ,function(req,res,next) {
     res.render('newPost' , {
