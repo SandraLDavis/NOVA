@@ -45,6 +45,7 @@ app.use(passport.initialize());
 //Intialize passport session.
 app.use(passport.session());
 // /////////////////// using routers //////////////////////////////////
+
 app.use('/', indexRouter);
 app.use('/home',homeRouter);
 app.use('/users', usersRouter);
