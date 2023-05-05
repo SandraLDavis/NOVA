@@ -6,10 +6,6 @@ var User = require('../models/user');
 var mongoose = require('mongoose');
 const user = require('../models/user');
 
-
-
- 
-
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,

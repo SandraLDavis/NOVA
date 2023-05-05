@@ -8,7 +8,7 @@ var Post = require('../models/post');
 
 
 router.get('/', (req, res) => {
-        console.log("here at router get home 1 ");
+    res.render('home')
         // // let posts = await Post.find({ $query: {}, $orderby: { createdAt : -1 } })
         // Post.find({ $query: {}, $orderby: { createdAt : -1 } }).then((posts) => {
         //     console.log(posts);
@@ -25,7 +25,6 @@ router.get('/', (req, res) => {
         //     res.redirect('https://www.google.com/')
         //   }
         // })
-        res.send('dorostesh kardi :)');
     });
 
 // function isLoggedIn(req, res,next){
