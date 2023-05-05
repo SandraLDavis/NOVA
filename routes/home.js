@@ -8,7 +8,9 @@ var Post = require('../models/post');
 
 
 router.get('/', (req, res) => {
-    res.render('home')
+    res.render('home' , {
+        loggedInUser : req.user
+    })
         // // let posts = await Post.find({ $query: {}, $orderby: { createdAt : -1 } })
         // Post.find({ $query: {}, $orderby: { createdAt : -1 } }).then((posts) => {
         //     console.log(posts);

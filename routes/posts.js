@@ -16,7 +16,9 @@ var cloudinaryStorage = require('multer-storage-cloudinary');
 // var postsCtrl = require('../controllers/posts');
 
 router.get('/new' ,function(req,res,next) {
-    res.render('newPost')
+    res.render('newPost' , {
+        loggedInUser : req.user 
+    })
 })
 
 

@@ -9,7 +9,8 @@ router.get('/profile/:id' , function(req,res,next) {
     if (req.user.id == req.params.id) {
         res.render('./users/myProfile.ejs' , {
             name : req.user.firstName, 
-            imge : req.user.avatar
+            imge : req.user.avatar,
+            loggedInUser : req.user
     
         })
     }
