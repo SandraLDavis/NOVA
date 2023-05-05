@@ -6,12 +6,15 @@ var usersCtrl = require('../controllers/users');
 
 router.get('/profile/:id' , function(req,res,next) {
     
-    // if (req.user.id == req.params.id || req.params.id == 0101010010) {
+    if (req.user.id == req.params.id) {
         res.render('./users/myProfile.ejs' , {
             name : req.user.firstName, 
             imge : req.user.avatar
     
         })
-    // }
+    }
+    else {
+        res.render('./users/profile.ejs');
+    }
 })
 module.exports = router;

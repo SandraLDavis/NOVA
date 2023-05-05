@@ -5,15 +5,15 @@ var Post = require('../models/post')
 var multer = require('multer');
 var cloudinary = require('cloudinary');
 var cloudinaryStorage = require('multer-storage-cloudinary');
-var storage = cloudinaryStorage({
-    cloudinary, 
-    filename: function (req, file, cb) {
-        cb(null, new Date().toISOString() + file.originalname );
-      },
-    allowedFormats: ["jpg", "jpeg", "png"],
-});
-var upload = multer({storage})
-var postsCtrl = require('../controllers/posts');
+// var storage = cloudinaryStorage({
+//     cloudinary, 
+//     filename: function (req, file, cb) {
+//         cb(null, new Date().toISOString() + file.originalname );
+//       },
+//     allowedFormats: ["jpg", "jpeg", "png"],
+// });
+// var upload = multer({storage})
+// var postsCtrl = require('../controllers/posts');
 
 router.get('/new' ,function(req,res,next) {
     res.render('newPost')
