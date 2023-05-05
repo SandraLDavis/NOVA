@@ -9,19 +9,19 @@ var commentSchema = new Schema ({
 },{
     timestamps:true
 })
-var ratingSchema = new Schema ({
-    rating:Number,
-    visitorId: String,
-    visitorAvatar: String,
-    visitorName: String
-},{
-    timestamps:true
-})
+// var ratingSchema = new Schema ({
+//     rating:Number,
+//     visitorId: String,
+//     visitorAvatar: String,
+//     visitorName: String
+// },{
+//     timestamps:true
+// })
 
 var postSchema = new Schema({
     image: String,
-    rating: Number,
-    ratinArray: [ratingSchema],
+    // rating: Number,
+    // ratinArray: [ratingSchema],
     likes:[],
     caption: String,
     userId: String,
