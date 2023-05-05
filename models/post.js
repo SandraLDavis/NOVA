@@ -20,7 +20,7 @@ var ratingSchema = new Schema ({
 
 var postSchema = new Schema({
     image: String,
-    ratin: Number,
+    rating: Number,
     ratinArray: [ratingSchema],
     likes:[],
     caption: String,
