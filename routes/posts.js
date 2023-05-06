@@ -25,12 +25,13 @@ router.get('/new' ,function(req,res,next) {
     })
 })
 router.post('/upload' , upload.single('image')  , function(req,res,next) {
-    req.body.image = req.file.secure_url;
+    console.log(req.file);
+    req.body.image = req.file.path;
     req.body.userId = req.user._id;
     req.body.username = req.user.name;
     req.body.userAvatar = req.user.avatar;
     var newPost = new Post (req.body);
-    console.log(newPost);
+    // console.log(newPost);
     res.redirect(`/users/profile/${req.user.id}`);
 })
 
