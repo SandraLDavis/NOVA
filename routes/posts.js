@@ -31,8 +31,11 @@ router.post('/upload' , upload.single('image')  , function(req,res,next) {
     req.body.username = req.user.name;
     req.body.userAvatar = req.user.avatar;
     var newPost = new Post (req.body);
-    // console.log(newPost);
-    res.redirect(`/users/profile/${req.user.id}`);
+
+    newPost.save(newPost).then((post) => {
+        res.redirect(`/users/profile/${req.user.id}`);
+    });
+    console.log(newPost);
 })
 
 
