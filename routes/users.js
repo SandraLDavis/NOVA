@@ -16,7 +16,13 @@ router.get('/profile/:id' , function(req,res,next) {
             })
         }
         else {
-            res.render('./users/profile.ejs');
+            User.findById(req.params.id).then ((user) => {
+                res.render('./users/profile.ejs' , {
+                    loggedInUser : req.user, 
+                    posts : userPosts,
+                    user : user
+                });
+            })
         }
     })
 })
