@@ -2,7 +2,9 @@
 <html>
   <head>
     <!-- TITLE IS GIVEN TO THE VIEWS BY THE CONTROLLERS WHICH DIRECT THEM HERE  -->
-    <title><%= title %></title>
+    <title>
+      <%= title %>
+    </title>
     <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
   </head>
@@ -17,11 +19,11 @@
           font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
         }
         a {
-          color: rgb(170, 18, 18);
+          color: rgb(123, 0, 255);
           width: 1%;
         }
         h1{
-          color: rgb(83, 69, 69);
+          color: rgb(0, 255, 221);
      }
       #img{
         width: 15%;
@@ -33,18 +35,23 @@
         display: flex;
         align-items: center;
         font-size: 27px;
-        border: 3px solid rgb(95, 93, 93);
-        box-shadow: 0 0 0 5px gray;
+        border: 3px solid rgb(115, 255, 0);
+        box-shadow: 0 0 0 5px rgb(255, 251, 251);
         box-shadow: 0 0 0 6px black;
-        margin-left: 10%;
-        margin-top: 7%;
+        margin-left: 40%;
+        margin-top: 2%;
       }
       #btn:hover{
         cursor: pointer;
       }
+
+      #title {
+        text-shadow: 2px 2px 10px blue
+      }
       </style>
-    <h1 style="font-family: 'Lobster', cursive;">Welcome to </h1>
-    <h1 style="font-family: 'Lobster', cursive; margin: 2%; font-size: 200px;"><%= title %></h1>
+    <h1 style="font-family: 'Gill sans';">Welcome to </h1>
+    <h1 style="font-family: 'Gill sans'; margin: 2%; font-size: 200px;"><%= title %>
+    </h1>
     <a style="text-decoration: none;" href="/auth/google"> <button id="btn"><img id="img" src="/images/google2.png" alt=" Google "> Login with Google</button></a>
   </body>
 </html>

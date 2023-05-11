@@ -26,17 +26,7 @@ router.get('/profile/:id' , function(req,res,next) {
         }
         else {
             try {
-                var userPost , userProfile ;
-                Post.find({userId:req.params.id}).then((posts) => {
-                    console.log(posts , "saaaaaggggggggggg");
-                    User.findById(req.params.id).then((user) => {
-                        res.render('./users/profile' , {
-                            loggedInUser : req.user, 
-                            posts,
-                            user 
-                        });
-                    });
-                })
+                var userPost = Post.find({userId:req.params.id})
             }
             catch (err) {
                 console.log(err , "saggggggggggg");
