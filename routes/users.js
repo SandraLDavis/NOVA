@@ -16,14 +16,15 @@ router.get('/profile/:id' , function(req,res,next) {
             })
         }
         else {
-            User.findById(req.params.id).then ((user) => {
-                res.render('./users/profile.ejs' , {
-                    loggedInUser : req.user, 
-                    posts : userPosts,
-                    user : user
-                });
-            })
-        }
-    })
+            // var user = await User.findOne({_id : req.params.id});
+            console.log("sag");
+            res.render('./users/profile.ejs' , {
+                     loggedInUser : req.user, 
+                     posts : userPosts,
+                     user : req.user
+                 });
+         }
+    });
+       
 })
 module.exports = router;
