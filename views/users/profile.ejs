@@ -124,18 +124,18 @@
 </style>
 <div id="profile_header"> 
     <div id="profile_text_holder">
-        <h1><%= user.displayName%></h1>
+        <h1><%= posts[0].displayName%></h1>
     </div>
     <div id="profile_avatar">
-        <img src="<%= user.avatar %>" alt="">
+        <img src="<%= posts[0].avatar %>" alt="">
     </div>
 </div>
 
 <div id="allPostsHolder">
-  <% if (posts.length != 0 ) {%>
+  <% if (hasPost ) {%>
     <% posts.forEach ( (post, postIdx) => {%>
       <div class="item">
-        <p><%= user.displayName %></p>
+        <p><%= post.displayName %></p>
         <div class="polaroid"><img src="<%= post.image%>">
           <div class="caption"> <%=post.caption%></div>
         </div>
@@ -143,7 +143,7 @@
     <% });%>  
   </div>
   <% } else {%>
-    <h1> <%=user.displayName %> HAS NO POSTS YET :( </h1>
+    <h1> <%=posts[0].displayName %> HAS NO POSTS YET :( </h1>
   <% }%>
 
 <%- include('../partials/footer') %>

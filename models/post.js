@@ -25,8 +25,8 @@ var postSchema = new Schema({
     likes:[],
     caption: String,
     userId: String,
-    username: String,
-    userAvatar: String,
+    displayName: String,
+    avatar: String,
     comments:[commentSchema]
 
 },{

@@ -127,7 +127,7 @@
   <% if (posts.length != 0 ) {%>
     <% posts.forEach ( (post, postIdx) => {%>
       <div class="item">
-        <a href="/users/view/userprofile/<%= post.userId%>"><%= post.username%></a>
+        <a href="/users/view/userprofile/<%= post.userId%>"><%= post.displayName%></a>
         <div class="polaroid"><img src="<%= post.image%>">
           <div class="caption"> <%=post.caption%></div>
         </div>

@@ -26,10 +26,28 @@ router.get('/profile/:id' , function(req,res,next) {
         }
         else {
             try {
-                var userPost = Post.find({userId:req.params.id})
+                var userPost = await Post.find({userId:req.params.id})
+                console.log(userPost);
+                if (userPost.length == 0) {
+                    var userProfile = await User.findOne({_id : req.params.id})
+                    var post = [userProfile];
+                    console.log(post);
+                    res.render("./users/profile" , {
+                        loggedInUser : req.user , 
+                        posts : post,
+                        hasPost : false
+                    })
+                }
+                else {
+                    res.render("./users/profile" , {
+                        loggedInUser : req.user , 
+                        posts : userPost,
+                        hasPost : true
+                    })
+                }
             }
             catch (err) {
-                console.log(err , "saggggggggggg");
+                console.log(err , "error in user router for userprofile");
                 res.redirect("/");
             }
             

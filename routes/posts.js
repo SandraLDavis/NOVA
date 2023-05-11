@@ -28,8 +28,8 @@ router.post('/upload' , upload.single('image')  , function(req,res,next) {
     // console.log(req.file);
     req.body.image = req.file.path;
     req.body.userId = req.user._id;
-    req.body.username = req.user.displayName;
-    req.body.userAvatar = req.user.avatar;
+    req.body.displayName = req.user.displayName;
+    req.body.avatar = req.user.avatar;
     var newPost = new Post (req.body);
 
     newPost.save(newPost).then((post) => {
