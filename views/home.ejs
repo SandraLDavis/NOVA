@@ -1,6 +1,5 @@
 <%- include('./partials/header') %>
 <style>
-    /* ___________________________________ POLAROIDS ________________________________ */
   .wrapper {
     width: 100%;
     padding: 0 2rem;
@@ -100,65 +99,44 @@
     box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
     transition: all 0.35s;
   }
+    #profile_header{
+        width: 100%;
+        height: 25%;
+        /* border: 5px dotted pink; */
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-around;
+        /* border: 3px dotted wheat; */
+    }
+    #profile_avatar {
+        width: 50%;
+    }
+    #profile_avatar img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        border: 3px solid rgb(118, 112, 121);
+        /* border: 3px solid rgb(200, 141, 200); */
+    }
+    #profile_text_holder{
+        width: 40%;
+    }
 </style>
 
-<div class="wrapper">
-  
-    <div class="item">
-      <div class="polaroid"><img src="https://image.ibb.co/mmyvrc/anniversary_balloons_birthday_68369.jpg">
-      <!-- <div class="polaroid"><img src="./IMG/IMG_7718.jpeg"> -->
-        <div class="caption">Hello There </div>
-      </div>
-    </div>
-  
-    <div class="item">
-      <div class="polaroid"><img src="https://image.ibb.co/hQaarc/antique_blur_camera_828378.jpg">
-      <!-- <div class="polaroid"><img src="./IMG/IMG_7573.PNG"> -->
-        <div class="caption">MORNING</div>
-      </div>
-    </div>
-  
-    <div class="item">
-      <div class="polaroid"><img src="https://image.ibb.co/crFarc/pexels_photo_100756.jpg">
-      <!-- <div class="polaroid"><img src="./IMG/IMG_7703.jpeg"> -->
-        <div class="caption">FIND ME !</div>
-      </div>
-    </div>
-    
-    <div class="item">
-      <div class="polaroid"><img src="https://image.ibb.co/fvekrc/action_adult_art_673649.jpg">
-      <!-- <div class="polaroid"><img src="./IMG/IMG_7605.PNG"> -->
-        <div class="caption">MOOD </div>
-      </div>
-    </div>
-
-    <div class="item">
-        <div class="polaroid"><img src="https://image.ibb.co/b8UJBc/administration_architecture_big_ben_221166.jpg">
-        <!-- <div class="polaroid"><img src="./IMG/IMG_7538.jpeg"> -->
-          <div class="caption">I Miss THE SUN </div>
+<div id="allPostsHolder">
+  <% if (posts.length != 0 ) {%>
+    <% posts.forEach ( (post, postIdx) => {%>
+      <div class="item">
+        <a href="/users/profile/<%=post.userId%>"><%= post.username%></a>
+        <div class="polaroid"><img src="<%= post.image%>">
+          <div class="caption"> <%=post.caption%></div>
         </div>
       </div>
-
-    <div class="item">
-        <div class="polaroid"><img src="https://image.ibb.co/b8UJBc/administration_architecture_big_ben_221166.jpg">
-        <!-- <div class="polaroid"><img src="./IMG/IMG_7538.jpeg"> -->
-          <div class="caption">I Miss THE SUN </div>
-        </div>
-      </div>
-    <div class="item">
-        <div class="polaroid"><img src="https://image.ibb.co/b8UJBc/administration_architecture_big_ben_221166.jpg">
-        <!-- <div class="polaroid"><img src="./IMG/IMG_7605.PNG"> -->
-          <div class="caption">I Miss THE SUN jfjhfhfjfjfjfjfjh  fhhfhgf gk kutk u k kut utku kutkut kt </div>
-        </div>
-      </div>
-  
+    <% });%>  
   </div>
-
-
-
-
-
-
-
+  <% } else {%>
+    <h1> THERE ARE NO POSTS :( </h1>
+    <a href="/posts/new"> ADD A POST NOW </a>
+  <% }%>
 
 <%- include('./partials/footer') %>

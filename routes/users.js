@@ -5,7 +5,11 @@ var Post = require('../models/post');
 var usersCtrl = require('../controllers/users');
 
 
-router.get('/profile/:id' , function(req,res,next) {
+
+// async function getUserInfo (id) {
+//     return await User.findById(id);
+// }
+router.get('/profile/:id' , async function(req,res,next) {
     Post.find({userId:req.params.id}).then((posts) => {
         var userPosts = posts ;
         if (req.user.id == req.params.id) {
@@ -16,15 +20,10 @@ router.get('/profile/:id' , function(req,res,next) {
             })
         }
         else {
-            // var user = await User.findOne({_id : req.params.id});
-            console.log("sag");
-            res.render('./users/profile.ejs' , {
-                     loggedInUser : req.user, 
-                     posts : userPosts,
-                     user : req.user
-                 });
+          res.redirect("/")
          }
     });
        
 })
+
 module.exports = router;

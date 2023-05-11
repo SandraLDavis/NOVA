@@ -3,18 +3,19 @@ var mongoose = require('mongoose')
 var router = express.Router();
 var User = require('../models/user');
 var Post = require('../models/post');
+const post = require('../models/post');
 
 
 
 
 router.get('/', (req, res) => {
-    res.render('home' , {
-        loggedInUser : req.user
-    })
         // // let posts = await Post.find({ $query: {}, $orderby: { createdAt : -1 } })
-        // Post.find({ $query: {}, $orderby: { createdAt : -1 } }).then((posts) => {
-        //     console.log(posts);
-        // })
+        Post.find({}).then((posts) => {
+            res.render('home' , {
+                loggedInUser : req.user,
+                posts:posts
+            })
+        })
         // // Post.find({}).sort({'created_at': -1})(function(err,posts){
         //   if (posts) {
         //       res.render('home',{

@@ -25,10 +25,10 @@ router.get('/new' ,function(req,res,next) {
     })
 })
 router.post('/upload' , upload.single('image')  , function(req,res,next) {
-    console.log(req.file);
+    // console.log(req.file);
     req.body.image = req.file.path;
     req.body.userId = req.user._id;
-    req.body.username = req.user.name;
+    req.body.username = req.user.displayName;
     req.body.userAvatar = req.user.avatar;
     var newPost = new Post (req.body);
 
