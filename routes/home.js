@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
         Post.find({}).then((posts) => {
             res.render('home' , {
                 loggedInUser : req.user,
-                posts:posts
+                posts:posts.reverse(),
             })
         })
         // // Post.find({}).sort({'created_at': -1})(function(err,posts){
