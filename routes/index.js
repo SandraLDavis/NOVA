@@ -28,7 +28,7 @@ router.get('/auth/google',passport.authenticate(
   passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
     // Successful authentication, redirect home.
-    res.redirect(`/users/profile/${req.user.id}?AZ+GOOGLE+MIRIM+BE+PROFILE+BEHTARE`);
+    res.redirect(`/users/profile/${req.user.id}`);
   });
 
   router.get('/logout', function(req, res , next) {

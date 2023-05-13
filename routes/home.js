@@ -3,16 +3,19 @@ var mongoose = require('mongoose')
 var router = express.Router();
 var User = require('../models/user');
 var Post = require('../models/post');
+const post = require('../models/post');
 
 
 
 
 router.get('/', (req, res) => {
-        console.log("here at router get home 1 ");
         // // let posts = await Post.find({ $query: {}, $orderby: { createdAt : -1 } })
-        // Post.find({ $query: {}, $orderby: { createdAt : -1 } }).then((posts) => {
-        //     console.log(posts);
-        // })
+        Post.find({}).then((posts) => {
+            res.render('home' , {
+                loggedInUser : req.user,
+                posts:posts.reverse(),
+            })
+        })
         // // Post.find({}).sort({'created_at': -1})(function(err,posts){
         //   if (posts) {
         //       res.render('home',{
@@ -25,7 +28,6 @@ router.get('/', (req, res) => {
         //     res.redirect('https://www.google.com/')
         //   }
         // })
-        res.send('dorostesh kardi :)');
     });
 
 // function isLoggedIn(req, res,next){
